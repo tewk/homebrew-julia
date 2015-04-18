@@ -15,7 +15,7 @@ class GitNoDepthDownloadStrategy < GitDownloadStrategy
           deps = ["Rmath", "libuv", "openlibm"]
       end
       deps.each do |subm|
-        safe_system 'git', 'clone', "deps/#{subm}", "#{dst}/deps/#{subm}"
+        safe_system 'git', 'clone', @url.rpartition("/")[0] + "/#{subm}", "#{dst}/deps/#{subm}"
       end
     end
   end
